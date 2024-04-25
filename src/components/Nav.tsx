@@ -27,7 +27,7 @@ export function NavLink(
   return (
     <Link
       {...props}
-      className={`btn btn-ghost ${pathname === props.href && "bg-primary"}`}
+      className={`btn btn-ghost  ${pathname === props.href && "bg-primary text-gray-50"}`}
     />
   );
 }

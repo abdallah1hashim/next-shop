@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Nav, NavList } from "@/components/Nav";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Next-Shop",
   description: "we make your wallet cry",
@@ -23,7 +25,7 @@ export default function RootLayout({
       <Nav title="Next-Shop">
         <NavList links={links} />
       </Nav>
-      <main className="container m-auto p-4">{children}</main>
+      <main className="container m-auto  py-4">{children}</main>
     </>
   );
 }
