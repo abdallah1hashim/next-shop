@@ -1,8 +1,32 @@
 import Button from "@/components/Button";
 import Table from "@/components/Table";
+import prisma from "@/db/db";
 import Link from "next/link";
 
-function productsPage() {
+export type product = {
+  id: string;
+  name: string;
+  priceInCents: number;
+  isAvailableForPurchase: boolean;
+  _count: { orders: number };
+};
+
+async function getProducts() {
+  return await prisma.product.findMany({
+    select: {
+      id: true,
+      name: true,
+      priceInCents: true,
+      isAvailableForPurchase: true,
+      _count: { select: { orders: true } },
+    },
+    orderBy: { name: "asc" },
+  });
+}
+
+async function productsPage() {
+  const products = await getProducts();
+
   return (
     <div>
       <header className="my-8 flex flex-row justify-between">
@@ -14,7 +38,8 @@ function productsPage() {
         </Button>
       </header>
       <section>
-        <Table data={[]} />
+        {products.length === 0 && <p>No Products Found</p>}
+        {products && products.length !== 0 && <Table data={products} />}
       </section>
     </div>
   );

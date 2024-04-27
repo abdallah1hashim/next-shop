@@ -9,10 +9,11 @@ type button = {
   href?: string;
   customized?: string;
   disable?: boolean;
+  className?: string;
 };
 
 const mainStyles =
-  "btn btn-ghost rounded-md focus:outline-4 focus:outline-primary focus:outline-offset-4 uppercase disabled:bg-gray-500";
+  " btn btn-ghost rounded-md focus:outline-4 focus:outline-primary focus:outline-offset-4 uppercase disabled:bg-gray-500 ";
 
 const variantStyles = {
   primary: " border-none bg-primary text-gray-100",
@@ -36,6 +37,7 @@ function Button({
   href,
   customized,
   disable,
+  className,
   ...rest
 }: button) {
   if (type === "link") {
@@ -55,9 +57,9 @@ function Button({
       disabled={disable}
       onClick={onClick}
       type={type === "submit" ? "submit" : "button"}
-      className={`${mainStyles} ${variantStyles[variant]} ${
+      className={`${mainStyles} ${variantStyles[variant]}  ${
         sizeStyles[size]
-      } ${customized ? customized : ""} `}
+      } ${customized ? customized : ""} ${className}`}
       {...rest}
     >
       {children}
