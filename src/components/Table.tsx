@@ -1,5 +1,4 @@
-import { CiCircleCheck } from "react-icons/ci";
-import { GoXCircle } from "react-icons/go";
+import { GoCheckCircle, GoXCircle } from "react-icons/go";
 
 import { formatCurrency, formatNumber } from "@/lib/formatters";
 import { CgMoreVertical } from "react-icons/cg";
@@ -8,8 +7,8 @@ import { product } from "@/app/admin/products/page";
 
 function Table({ data }: { data: product[] }) {
   return (
-    <div className="overflow-x-auto">
-      <table className="table">
+    <div className=" min-h-96 overflow-x-auto">
+      <table className=" table">
         {/* head */}
         <thead>
           <tr>
@@ -22,12 +21,12 @@ function Table({ data }: { data: product[] }) {
         <tbody>
           {/* row 1 */}
           {data.map((product) => (
-            <tr key={product.id}>
-              <th className="text-lg ">
+            <tr key={product.id} className="hover:bg-gray-100">
+              <th className="text-2xl ">
                 {product.isAvailableForPurchase ? (
                   <>
                     <span className="sr-only">Avilable</span>
-                    <CiCircleCheck />
+                    <GoCheckCircle />
                   </>
                 ) : (
                   <>
@@ -41,7 +40,7 @@ function Table({ data }: { data: product[] }) {
               <td>{formatNumber(product._count.orders)}</td>
               <td>
                 <details className="dropdown">
-                  <summary className="btn m-1 bg-base-100">
+                  <summary className="btn m-1 border-none bg-base-100 ">
                     <CgMoreVertical />
                   </summary>
                   <DropDown product={product} />

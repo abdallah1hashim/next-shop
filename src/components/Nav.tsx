@@ -27,7 +27,7 @@ export function NavLink(
   return (
     <Link
       {...props}
-      className={`btn btn-ghost  ${pathname === props.href && "bg-primary text-gray-50"}`}
+      className={`btn btn-ghost  ${pathname === props.href && "bg-primary text-gray-50 hover:bg-info"}`}
     />
   );
 }
@@ -37,7 +37,7 @@ export function NavList({
   links: { url: string; title: string }[];
 }) {
   return (
-    <ul className="flex flex-row">
+    <ul className="flex flex-row gap-2">
       {links.map((link) => (
         <li key={link.url}>
           <NavLink href={link.url}>{link.title}</NavLink>

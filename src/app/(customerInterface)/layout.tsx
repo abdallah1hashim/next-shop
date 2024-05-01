@@ -9,13 +9,12 @@ export const metadata: Metadata = {
 };
 
 const links = [
-  { url: "/admin", title: "Dashboard" },
-  { url: "/admin/products", title: "Products" },
-  { url: "/admin/users", title: "Users" },
-  { url: "/admin/orders", title: "Orders" },
+  { url: "/", title: "Home" },
+  { url: "/products", title: "Products" },
+  { url: "/orders", title: "Orders" },
 ];
 
-export default function AdminLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;

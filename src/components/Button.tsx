@@ -13,7 +13,7 @@ type button = {
 };
 
 const mainStyles =
-  " btn btn-ghost rounded-md focus:outline-4 focus:outline-primary focus:outline-offset-4 uppercase disabled:bg-gray-500 ";
+  " btn hover:bg-info  rounded-md focus:outline-4 focus:outline-primary focus:outline-offset-4 uppercase disabled:bg-gray-500 ";
 
 const variantStyles = {
   primary: " border-none bg-primary text-gray-100",
